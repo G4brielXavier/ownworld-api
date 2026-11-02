@@ -1,0 +1,7 @@
+/.vscode
+/src/generated/prisma
+skills-lock.json
+dev.db
+.env
+/dist
+/node_modules

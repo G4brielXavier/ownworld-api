@@ -1,0 +1,32 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Item {
+  name          String    @unique
+  description   String?
+  rarity        String?
+
+  @@map("item")
+}
+
+
+model Character {
+  name        String    @unique
+  description String?
+
+  @@map("character")
+}
+
+
+model World {
+  name          String    @unique
+  description   String?
+
+  @@map("world")
+}
