@@ -4,10 +4,16 @@ import { ItemService } from '../services/itemService.js'
 export class ItemController {
     async create(req: Request, res: Response) {
         try {
-            const { name, description } = req.body;
+            const {
+                name,
+                description,
+                rarity,
+                tags,
+                links
+            } = req.body;
 
             const itemService = new ItemService();
-            const item = await itemService.create({ name, description });
+            const item = await itemService.create({ name, description, rarity, tags, links });
 
             return res.status(201).json(item)
         } catch (err: any) {

@@ -16,6 +16,7 @@
     - [Character Model](#character-model)
     - [World Model](#world-model)
   - [Stack Used](#stack-used)
+  - [Roadmap](#roadmap)
 
 
 ## Routes
@@ -60,9 +61,13 @@ Route used to create and manage specifically locations.
 
 ```prisma
 model Item {
-    name            String  @unique
-    description     String?
-    rarity          String?
+  name          String    @unique
+  description   String?
+  rarity        String?
+  tags          String?   @default("[]")
+  links         String?   @default("[]")
+
+  @@map("item")
 }
 ```
 
@@ -79,8 +84,14 @@ model Item {
 
 ```prisma
 model Character {
-    name            String  @unique
-    description     String?
+  name              String    @unique
+  short_description String?
+  description       String?   
+  tags              String?   @default("[]")
+  relations         String?   @default("[]")
+  links             String?   @default("[]")
+
+  @@map("character")
 }
 ```
 
@@ -88,7 +99,8 @@ model Character {
 // body
 {
     "name": "Broggy",
-    "description": "A strongman that protect the Golden Village."
+    "short_description": "It's broggy",
+    "description": "A strongman that protect the Golden Village.",
 }
 ```
 
@@ -96,9 +108,12 @@ model Character {
 
 ```prisma
 model World {
-    name            String  @unique
-    type            String? 
-    description     String?
+  name          String    @unique
+  description   String?
+  tags          String?   @default("[]")
+  links         String?   @default("[]")
+
+  @@map("world")
 }
 ```
 
@@ -118,3 +133,7 @@ model World {
 - **Prisma** (with `sqlite`)
 - **Zod** for *request-validation*
 - **Express** (*back-end*)
+
+
+## Roadmap
+

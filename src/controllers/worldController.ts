@@ -7,10 +7,10 @@ export class WorldController {
     async create(req: Request, res: Response) {
         try {
 
-            const { name, description } = req.body;
+            const { name, description, tags, links } = req.body;
 
             const worldService = new WorldService();
-            const world = await worldService.create({ name, description })
+            const world = await worldService.create({ name, description, tags, links })
 
             return res.status(201).json(world)
 

@@ -5,9 +5,16 @@ export class CharController {
 
     async create(req: Request, res: Response) {
         try {
-            const { name, description } = req.body;
+            const {
+                name,
+                short_description,
+                description,
+                tags,
+                relations,
+                links
+            } = req.body;
             const charService = new CharService();
-            const char = await charService.create({ name, description })
+            const char = await charService.create({ name, description, short_description, links, tags, relations })
 
             return res.status(201).json(char)
 

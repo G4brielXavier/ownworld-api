@@ -8,8 +8,10 @@ const charController = new CharController();
 
 const createCharSchema = z.object({
     name: z.string().min(3),
+    short_description: z.string().optional(),
     description: z.string().optional(),
-    rarity: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    relations: z.array(z.string()).optional()
 })
 
 charRoute.get('/', charController.everything);

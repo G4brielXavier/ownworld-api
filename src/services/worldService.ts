@@ -2,7 +2,9 @@ import { prisma } from '../lib/prisma.js'
 
 interface CreateWorldDTO {
     name: string,
-    description?: string
+    description?: string,
+    tags: string[],
+    links: string[]
 }
 
 
@@ -34,7 +36,7 @@ export class WorldService {
         }
     }
 
-    async create({ name, description }: CreateWorldDTO) {
+    async create({ name, description, tags, links }: CreateWorldDTO) {
 
         const exists = await prisma.world.findUnique({ where: { name } });
 
@@ -43,7 +45,9 @@ export class WorldService {
         }
 
         const data: any = {
-            name: name
+            name: name,
+            tags: JSON.stringify(tags),
+            links: JSON.stringify(links)
         }
 
         if (description) {

@@ -2,7 +2,11 @@ import { prisma } from "../lib/prisma.js";
 
 interface CreateCharDTO {
     name: string,
+    short_description?: string,
     description?: string,
+    tags: string[],
+    relations: string[],
+    links: string[]
 }
 
 export class CharService {
@@ -33,7 +37,7 @@ export class CharService {
         }
     }
 
-    async create({ name, description }: CreateCharDTO) {
+    async create({ name, description, short_description, tags, relations, links }: CreateCharDTO) {
         const exists = await prisma.character.findUnique({ where: { name } });
 
         if (exists) {
@@ -41,11 +45,18 @@ export class CharService {
         }
 
         const dataToCreate: any = {
-            name: name
+            name: name,
+            tags: JSON.stringify(tags),
+            relations: JSON.stringify(relations),
+            links: JSON.stringify(links)
         }
 
         if (description) {
             dataToCreate.description = description
+        }
+
+        if (short_description) {
+            dataToCreate.short_description = short_description
         }
 
         const char = await prisma.character.create({

@@ -10,7 +10,9 @@ const worldController = new WorldController();
 
 const schema = z.object({
     name: z.string().min(3),
-    description: z.string().optional()
+    description: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    links: z.array(z.string()).optional()
 })
 
 worldRoute.get('/', worldController.index);

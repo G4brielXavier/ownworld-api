@@ -2,19 +2,27 @@
 CREATE TABLE "item" (
     "name" TEXT NOT NULL,
     "description" TEXT,
-    "rarity" TEXT
+    "rarity" TEXT,
+    "tags" TEXT DEFAULT '[]',
+    "links" TEXT DEFAULT '[]'
 );
 
 -- CreateTable
 CREATE TABLE "character" (
     "name" TEXT NOT NULL,
-    "description" TEXT
+    "short_description" TEXT,
+    "description" TEXT,
+    "tags" TEXT DEFAULT '[]',
+    "relations" TEXT DEFAULT '[]',
+    "links" TEXT DEFAULT '[]'
 );
 
 -- CreateTable
 CREATE TABLE "world" (
     "name" TEXT NOT NULL,
-    "description" TEXT
+    "description" TEXT,
+    "tags" TEXT DEFAULT '[]',
+    "links" TEXT DEFAULT '[]'
 );
 
 -- CreateIndex

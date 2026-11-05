@@ -8,7 +8,10 @@ const itemController = new ItemController();
 
 const createItemSchema = z.object({
     name: z.string().min(3),
-    description: z.string().optional()
+    description: z.string().optional(),
+    rarity: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    links: z.array(z.string()).optional()
 })
 
 itemRoute.post('/', validate(createItemSchema), itemController.create);

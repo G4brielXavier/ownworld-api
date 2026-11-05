@@ -17,7 +17,7 @@ app.use('/worlds', worldRoute);
 
 
 app.listen(port, () => {
-    console.log(`OwnWorldAPI v1 is listening...`)
+    console.log(`OwnWorldAPI is listening...`)
     console.log(`In http://localhost:${port} or http://125.0.0.1:${port}`)
     console.log(``)
 })
