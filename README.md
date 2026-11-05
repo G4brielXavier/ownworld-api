@@ -30,7 +30,7 @@ Route used to create and manage specifically items.
 | `GET`  | `/items/`| List all items created | `200 OK`
 | `POST`  | `/items/`| Create a new item | `201 Created`
 | `PUT`  | `/items/:name`| Edit an existent item | `200 OK`
-| `DELETE`  | `/items/:name`| Delete an existent item | `204 No Content`
+| `DELETE`  | `/items`| Delete an existent item by `body` | `204 No Content`
 
 ### Characters Routes
 
@@ -41,7 +41,7 @@ Route used to create and manage specifically characters.
 | `GET`  | `/chars/`| List all chars created | `200 OK`
 | `POST`  | `/chars/`| Create a new chars | `201 Created`
 | `PUT`  | `/chars/:name`| Edit an existent chars | `200 OK`
-| `DELETE`  | `/chars/:name`| Delete an existent chars | `204 No Content`
+| `DELETE`  | `/chars`| Delete an existent chars by `body` | `204 No Content`
 
 ### World/Location Routes
 
@@ -52,7 +52,7 @@ Route used to create and manage specifically locations.
 | `GET`  | `/worlds/`| List all worlds created | `200 OK`
 | `POST`  | `/worlds/`| Create a new worlds | `201 Created`
 | `PUT`  | `/worlds/:name`| Edit an existent worlds | `200 OK`
-| `DELETE`  | `/worlds/:name`| Delete an existent worlds | `204 No Content`
+| `DELETE`  | `/worlds`| Delete an existent worlds by `body` | `204 No Content`
 
 
 ## Models
